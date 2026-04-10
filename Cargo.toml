@@ -1,0 +1,30 @@
+# Unlicense — cochranblock.org
+# Contributors: GotEmCoach, KOVA, Claude Opus 4.6
+
+[package]
+name = "deglaze"
+version = "0.1.0"
+edition = "2024"
+description = "JS Budget Auditor for WebAssembly. Analyzes wasm-bindgen JS glue, categorizes every function, maps each to the WASM spec proposal that would eliminate it."
+license = "Unlicense"
+repository = "https://github.com/cochranblock/deglaze"
+keywords = ["wasm", "webassembly", "javascript", "audit", "wasm-bindgen"]
+categories = ["development-tools", "wasm"]
+
+[[bin]]
+name = "deglaze"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
