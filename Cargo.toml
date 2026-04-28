@@ -10,6 +10,7 @@ license = "Unlicense"
 repository = "https://github.com/cochranblock/deglaze"
 keywords = ["wasm", "webassembly", "javascript", "audit", "wasm-bindgen"]
 categories = ["development-tools", "wasm"]
+exclude = ["target/", "Cargo.lock"]
 
 [[bin]]
 name = "deglaze"
